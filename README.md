@@ -1,6 +1,28 @@
 # Rocket-Elevators-Python-Controller
 This is the python residential controller program. The scenarios used to test the program is for a 10 story building served by 2 elevator cages.
 
+The necessary file to run some tests is also included.
+
+### Installation
+
+make sure to install the Package Installer for Python (PIP) if needed:
+
+https://pip.pypa.io/en/stable/installing/
+
+Next, install Pytest:
+
+https://docs.pytest.org/en/6.2.x/getting-started.html
+
+Running the tests
+To launch the tests:
+
+`pytest`
+
+You can also get more details about each test by adding the -v flag:
+
+`pytest -v`
+
+
 ### This controller is capable of supporting two main events:
 
 1. A person presses a call button to request an elevator, the controller selects an available cage and it is routed to that person based on two parameters provided by pressing the button:
