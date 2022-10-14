@@ -1,34 +1,39 @@
 # Rocket-Elevators-Python-Controller
-This is the template to use for the python residential controller. You will find the classes that should be used along with some methods described in the requirements. The necessary file to run some tests is also included. 
+This is the python residential controller program. The scenarios used to test the program is for a 10 story building served by 2 elevator cages.
 
-### Installation
+### This controller is capable of supporting two main events:
 
-First, depending on your python version, make sure to install the Package Installer for Python (PIP) if needed:
+1. A person presses a call button to request an elevator, the controller selects an available cage and it is routed to that person based on two parameters provided by pressing the button:
+a. The floor where the person is
+b. The direction in which he wants to go (Up or Down)
+It should be noted that an elevator already in motion (or stopped but still having other requests to be completed) should be prioritized versus an "Idle" elevator.
+2. A person enters an elevator, selects a floor of the control panel and it moves to the floor requested. The parameter provided is the requested floor.
 
-https://pip.pypa.io/en/stable/installing/
 
-Next, install Pytest:
+### Test Scenarios
 
-https://docs.pytest.org/en/6.2.x/getting-started.html
+Scenario 1:
+Elevator A is Idle at floor 2
+Elevator B is Idle at floor 6
+Someone is on floor 3 and wants to go to the 7th floor.
+Elevator A is expected to be sent.
 
-### Running the tests
+Scenario 2:
+Elevator A is Idle at floor 10
+Elevator B is idle at floor 3
+Someone is on the 1st floor and requests the 6th floor.
+Elevator B should be sent.
 
-To launch the tests:
+2 minutes later, someone else is on the 3rd floor and requests the 5th floor. Elevator B should be sent.
 
-`pytest`
+Finally, a third person is at floor 9 and wants to go down to the 2nd floor.
+Elevator A should be sent.
 
-With a fully completed project, you should get an output like:
+Scenario 3:
+Elevator A is Idle at floor 10
+Elevator B is Moving from floor 3 to floor 6
+Someone is on floor 3 and requests the 2nd floor.
+Elevator A should be sent.
 
-![Screenshot from 2021-06-15 13-13-13](https://user-images.githubusercontent.com/28630658/122095645-a41fa000-cddb-11eb-9322-81a766cce4bb.png)
+5 minutes later, someone else is on the 10th floor and wants to go to the 3rd. Elevator B should be sent.
 
-You can also get more details about each test by adding the `-v` flag: 
-
-`pytest -v` 
-
-which should give something like: 
-
-![Screenshot from 2021-06-15 13-13-33](https://user-images.githubusercontent.com/28630658/122095759-c74a4f80-cddb-11eb-999d-dfe35dbe7d18.png)
-
-The test file can be left in your final project but no scenarios should be present in your code. The grader will run tests similar to the ones provided.
-
-Of course, make sure to edit this Readme file to describe your own project!
