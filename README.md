@@ -1,4 +1,4 @@
-# Rocket-Elevators-Python-Controller
+# Rocket Elevators Python Controller
 This is the python residential controller program. The scenarios used to test the program is for a 10 story building served by 2 elevator cages.
 
 The necessary file to run some tests is also included.
